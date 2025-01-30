@@ -1,4 +1,4 @@
-# 🎙️ Anya AI - Голосовой ассистент с расширенными возможностями
+# 🎙️ Anya AI v0.0.1 - Голосовой ассистент с расширенными возможностями
 
 [![Python 3.10](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
 [![Требуется FFmpeg](https://img.shields.io/badge/FFmpeg-Обязателен-orange.svg)](https://ffmpeg.org/)
