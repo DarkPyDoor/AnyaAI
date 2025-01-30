@@ -79,3 +79,6 @@ Example commands:
 Open an [issue](https://github.com/DarkPyDoor/AnyaAI/issues)
 
 ## AnyaAI was not tested in English!
+
+
+![GitHub Repo Views](https://img.shields.io/badge/dynamic/json?label=Repo%20Views&query=value&url=https://api.countapi.xyz/hit/DarkPyDoor/AnyaAI&color=blue)
