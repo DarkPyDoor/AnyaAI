@@ -78,3 +78,5 @@ start.bat
 
 **Нужна помощь?**  
 Создайте [issue](https://github.com/DarkPyDoor/AnyaAI/issues)
+
+## AnyaAI не была протестирована на английском языке!
