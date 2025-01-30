@@ -33,12 +33,22 @@ She still has a lot to learn. Later, I will create a list of her full capabiliti
 git clone https://github.com/DarkPyDoor/AnyaAI.git
 ```
 
-2. Run setup script (Windows):
+2. Setting Up FFmpeg Paths  
+To configure the paths for `ffmpeg.exe` and `ffprobe.exe`, modify the following lines in the file `core/tts.py`:
+
+```python
+# Setting FFmpeg paths
+AudioSegment.ffmpeg = r"C:\path\to\your\ffmpeg\bin\ffmpeg.exe"
+AudioSegment.ffprobe = r"C:\path\to\your\ffmpeg\bin\ffprobe.exe"
+AudioSegment.converter = AudioSegment.ffmpeg
+```
+
+3. Run the setup script:
 ```bat
 start.bat
 ```
 
-3. Start the assistant:
+3.1 To start the assistant:
 ```bat
 start.bat
 ```
