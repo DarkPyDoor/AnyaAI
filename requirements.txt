@@ -1,0 +1,11 @@
+speechrecognition
+simpleaudio
+pyautogui
+pygetwindow
+ipinfo
+requests
+beautifulsoup4
+g4f
+pydub
+mss
+pyaudio
