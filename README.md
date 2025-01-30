@@ -74,8 +74,8 @@ Example commands:
 "Search for AI news"
 ```
 
-# AnyaAI was not tested in English!
-
 
 **Need help?**  
 Open an [issue](https://github.com/DarkPyDoor/AnyaAI/issues)
+
+## AnyaAI was not tested in English!
