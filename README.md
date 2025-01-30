@@ -31,7 +31,6 @@ She still has a lot to learn. Later, I will create a list of her full capabiliti
 1. Clone repository:
 ```bash
 git clone https://github.com/DarkPyDoor/AnyaAI.git
-cd NiaAI
 ```
 
 2. Run setup script (Windows):
@@ -50,16 +49,6 @@ start.bat
 2. Add to PATH:
    - Right-click "This PC" → Properties → Advanced system settings
    - Environment Variables → Select "Path" → Edit → Add FFmpeg bin folder
-
-#### macOS
-```bash
-brew install ffmpeg
-```
-
-#### Linux
-```bash
-sudo apt install ffmpeg
-```
 
 ## 🛠️ Usage
 Activate the assistant using wake words:
