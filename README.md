@@ -1,4 +1,4 @@
-# 🎙️ Anya AI - Voice Assistant with Superpowers
+# 🎙️ Anya AI v0.0.1 - Voice Assistant with Superpowers
 
 [![Python 3.10](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
 [![FFmpeg Required](https://img.shields.io/badge/FFmpeg-Required-orange.svg)](https://ffmpeg.org/)
