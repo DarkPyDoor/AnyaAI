@@ -27,6 +27,7 @@ class TextToSpeech:
         self.current_playback = None
         self.initialized = False
         self.session = self._create_retry_session()
+        self.auth_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3Mzg4OTM2MzYsInN1YiI6IjBkYjE3YzJhLWU0MmUtMTFlZi1iY2Q5LTFlYjg2OGU2ZmUzYSJ9.ewFLTpNqs9w3lqDm7Xrv6IBanhEgF4gl3DJzZZscuus"
         
         print("[TTS] Инициализация TextToSpeech...")
         self._initialize_audio_system()
@@ -110,6 +111,37 @@ class TextToSpeech:
 
         return None
 
+    def _get_media_url(self, uuid):
+        for attempt in range(6):  # 6 попыток с интервалом 1 секунда
+            try:
+                response = self.session.get(
+                    f"https://api.ttsopenai.com/api/v1/history/{uuid}",
+                    headers={
+                        "authorization": f"Bearer {self.auth_token}",
+                        "accept": "application/json",
+                        "sec-ch-ua": '"Not A(Brand";v="8", "Chromium";v="132", "Microsoft Edge";v="132"',
+                        "sec-ch-ua-mobile": "?0",
+                        "sec-ch-ua-platform": '"Windows"',
+                    },
+                    timeout=15
+                )
+
+                if response.status_code == 200:
+                    data = response.json()
+                    if data.get('status') == 2 and data.get('media_url'):
+                        return data['media_url']
+                    print(f"[TTS] Попытка {attempt+1}/6: Статус генерации {data.get('status_percentage')}%")
+                else:
+                    print(f"[TTS] Ошибка получения статуса (HTTP {response.status_code})")
+
+            except Exception as e:
+                print(f"[TTS] Ошибка запроса статуса (попытка {attempt+1}/6): {str(e)}")
+
+            time.sleep(1)  # Задержка 1 секунда между попытками
+
+        print("[TTS] Превышено максимальное количество попыток")
+        return None
+
     def generate_tts(self, text):
         if not self.initialized:
             return None
@@ -123,31 +155,48 @@ class TextToSpeech:
             return cache_file.read_bytes()
         
         try:
+            # Шаг 1: Создание TTS задачи
             response = self.session.post(
-                "https://ttsmp3.com/makemp3_ai.php",
+                "https://api.ttsopenai.com/api/v1/text-to-speech-stream",
                 headers={
-                    "content-type": "application/x-www-form-urlencoded",
-                    "referer": "https://ttsmp3.com/ai",
+                    "authorization": f"Bearer {self.auth_token}",
+                    "content-type": "application/json",
+                    "accept": "application/json",
+                    "sec-ch-ua": '"Not A(Brand";v="8", "Chromium";v="132", "Microsoft Edge";v="132"',
+                    "sec-ch-ua-mobile": "?0",
+                    "sec-ch-ua-platform": '"Windows"',
                 },
-                data={
-                    "msg": text,
-                    "lang": "nova",
-                    "speed": "1.00",
-                    "source": "ttsmp3"
+                json={
+                    "model": "tts-1",
+                    "speed": 1,
+                    "input": text,
+                    "voice_id": "OA005"
                 },
-                timeout=10
+                timeout=15
             )
 
-            if response.status_code == 200:
-                result = response.json()
-                if result.get("Error") == 0:
-                    mp3_url = f"https://ttsmp3.com/created_mp3_ai/{result['MP3']}"
-                    mp3_data = self.session.get(mp3_url, timeout=10).content
-                    if len(mp3_data) > 0:
-                        cache_file.write_bytes(mp3_data)
-                        return mp3_data
+            if response.status_code != 200:
+                print(f"[TTS] Ошибка API (HTTP {response.status_code}): {response.text}")
+                return None
 
-            print(f"[TTS] Ошибка API: {response.text}")
+            task_data = response.json()
+            uuid = task_data.get('uuid')
+            if not uuid:
+                print("[TTS] Не удалось получить UUID задачи")
+                return None
+
+            # Шаг 2: Получение ссылки на аудио
+            media_url = self._get_media_url(uuid)
+            if not media_url:
+                print("[TTS] Не удалось получить ссылку на аудио")
+                return None
+
+            # Шаг 3: Скачивание аудио
+            mp3_data = self.session.get(media_url, timeout=15).content
+            if len(mp3_data) > 0:
+                cache_file.write_bytes(mp3_data)
+                return mp3_data
+
             return None
 
         except Exception as e:
