@@ -6,6 +6,8 @@ A cutting-edge voice assistant that combines AI capabilities with system control
 She still has a lot to learn. Later, I will create a list of her full capabilities and what will be added in the future.
 
 ## Choose Language
+[![English](https://img.shields.io/badge/Language-English-blue)](README.md)
+[![Russian](https://img.shields.io/badge/Language-Russian-red)](README_ru.md)
 
 ## 🌟 Features
 
