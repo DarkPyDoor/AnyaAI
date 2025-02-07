@@ -16,14 +16,9 @@ def get_location():
         print(f"Ошибка получения локации: {str(e)}")
         return None
 
-def get_web_content(url):
+def web_search(query, num_results=5):
     try:
-        response = requests.get(url, timeout=10)
-        soup = BeautifulSoup(response.text, 'html.parser')
-        return {
-            'title': soup.title.string if soup.title else '',
-            'content': soup.get_text()[:2000]
-        }
+        return list(search(query, num_results=num_results, lang="ru"))
     except Exception as e:
-        print(f"Ошибка получения веб-контента: {str(e)}")
-        return None
+        print(f"Ошибка поиска: {e}")
+        return []
