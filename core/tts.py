@@ -27,7 +27,7 @@ class TextToSpeech:
         self.current_playback = None
         self.initialized = False
         self.session = self._create_retry_session()
-        self.auth_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3Mzg4OTM2MzYsInN1YiI6IjBkYjE3YzJhLWU0MmUtMTFlZi1iY2Q5LTFlYjg2OGU2ZmUzYSJ9.ewFLTpNqs9w3lqDm7Xrv6IBanhEgF4gl3DJzZZscuus"
+        self.auth_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzkwNDc0ODUsInN1YiI6IjhmYjE0M2QyLWU0YWYtMTFlZi1hMjVkLTQyYjgxOGE3N2I1MiJ9.h0ZLxc7OR9dhOQenOBEm3h7ozUWouZXgBPAemc3a4PE"
         
         print("[TTS] Инициализация TextToSpeech...")
         self._initialize_audio_system()
