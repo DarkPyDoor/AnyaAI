@@ -1,4 +1,4 @@
-# 🎙️ Anya AI v0.0.2 - Voice Assistant with Superpowers
+# 🎙️ Anya AI v0.0.3 - Voice Assistant with Superpowers
 
 A cutting-edge voice assistant that combines AI capabilities with system control features. Built with Python 3.10 and powered by modern AI models.
 
@@ -19,12 +19,19 @@ She still has a lot to learn. Later, I will create a list of her full capabiliti
 - Multi-language support
 - Audio feedback system
 
-## 🔄 Update v0.0.2
+## 🔄 Update v0.0.3
 
 ### What's New?
-- Changed TTS model provider from `https://ttsmp3.com/` to `https://ttsopenai.com/`.
-- Now there is **unlimited** text-to-speech usage instead of a **1000-character** daily limit.
-- A unified authentication token is used—please **do not modify** the request type, such as changing `voice_id` or `model`.
+- Improved AI prompt engineering for better responses.
+- Switched AI model from `deepseek-chat` to `gpt-4o`.
+- Implemented **web search functionality**.
+- **Known Issue:** The `bearer token` for `ttsopenai` expires every few hours. Until this is resolved, please manually update the token in `utils/tts.py` (line 30).\
+  **How to get a new Bearer Token:**
+  1. Go to `https://ttsopenai.com/`
+  2. Open Developer Console (F12)
+  3. Generate an audio request on the website
+  4. Find the `text-to-speech-stream` request in Network tab
+  5. Copy the `authorization: Bearer <token>` from request headers
 
 ## 🚀 Quick Start
 
@@ -99,12 +106,13 @@ Open an [issue](https://github.com/DarkPyDoor/AnyaAI/issues)
 - Conversation history
 - Screen interaction
 - PC control at the Python code level (**✅ Implemented**)
-- Web search functionality
+- Web search functionality (**✅ Implemented**)
 - Multi-language support
 - User notifications
 - AI-initiated conversation without disturbing active tasks (e.g., gaming)
 - Improved voice perception
 - Voice identification
+- **Add vocal pauses like ['uhhh', 'ummm', 'hmm', 'well...'] to eliminate unnatural silence**
 
 And all of this will be **free**! 🎉
 
