@@ -9,6 +9,17 @@ She still has a lot to learn. Later, I will create a list of her full capabiliti
 [![English](https://img.shields.io/badge/Language-English-blue)](README.md)
 [![Russian](https://img.shields.io/badge/Language-Russian-red)](README_ru.md)
 
+<!-- Copy-paste in your Readme.md file -->
+
+<a href="https://next.ossinsight.io/widgets/official/compose-activity-trends?repo_id=924429727" target="_blank" style="display: block" align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/compose-activity-trends/thumbnail.png?repo_id=924429727&image_size=auto&color_scheme=dark" width="815" height="auto">
+    <img alt="Activity Trends of DarkPyDoor/AnyaAI - Last 28 days" src="https://next.ossinsight.io/widgets/official/compose-activity-trends/thumbnail.png?repo_id=924429727&image_size=auto&color_scheme=light" width="815" height="auto">
+  </picture>
+</a>
+
+<!-- Made with [OSS Insight](https://ossinsight.io/) -->
+
 ## 🌟 Features
 
 - Voice-controlled computer operations
