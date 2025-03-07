@@ -5,10 +5,6 @@ A cutting-edge voice assistant that combines AI capabilities with system control
 **Anya is in beta testing!**\
 She still has a lot to learn. Later, I will create a list of her full capabilities and what will be added in the future.
 
-## Choose Language
-[![English](https://img.shields.io/badge/Language-English-blue)](README.md)
-[![Russian](https://img.shields.io/badge/Language-Russian-red)](README_ru.md)
-
 <!-- Copy-paste in your Readme.md file -->
 
 <a href="https://next.ossinsight.io/widgets/official/compose-activity-trends?repo_id=924429727" target="_blank" style="display: block" align="center">
@@ -19,6 +15,10 @@ She still has a lot to learn. Later, I will create a list of her full capabiliti
 </a>
 
 <!-- Made with [OSS Insight](https://ossinsight.io/) -->
+
+## Choose Language
+[![English](https://img.shields.io/badge/Language-English-blue)](README.md)
+[![Russian](https://img.shields.io/badge/Language-Russian-red)](README_ru.md)
 
 ## 🌟 Features
 
